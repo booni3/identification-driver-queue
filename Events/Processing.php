@@ -54,6 +54,11 @@ class Processing
 
         /** @var array $payload */
         $payload = $event->job->payload();
+        
+        // vapor test
+        $payload = array_merge($payload, [
+            'attempts' => $this->job->attempts()
+        ]);
 
         if ($command = Arr::get($payload, 'data.command')) {
             $command = unserialize($command);
