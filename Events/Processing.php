@@ -57,7 +57,7 @@ class Processing
         
         // vapor test
         $payload = array_merge($payload, [
-            'attempts' => $this->job->attempts()
+            'attempts' => $event->job->attempts() ?? 0
         ]);
 
         if ($command = Arr::get($payload, 'data.command')) {
