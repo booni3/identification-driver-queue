@@ -28,6 +28,8 @@ class SaveTenantOnQueuePayload
             'attempts' => 0,
             'tenant_key'        => $tenant->getTenantKey(),
             'tenant_identifier' => $tenant->getTenantIdentifier(),
-        ] : [];
+        ] : [
+            'attempts' => 0
+        ];
     }
 }
