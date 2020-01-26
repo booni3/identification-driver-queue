@@ -25,6 +25,7 @@ class SaveTenantOnQueuePayload
         $tenant = Tenancy::getTenant();
 
         return $tenant ? [
+            'attempts' => 0,
             'tenant_key'        => $tenant->getTenantKey(),
             'tenant_identifier' => $tenant->getTenantIdentifier(),
         ] : [];
