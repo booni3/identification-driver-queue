@@ -24,11 +24,9 @@ class SaveTenantOnQueuePayload
     {
         $tenant = Tenancy::getTenant();
 
-        $payload = $tenant ? [
+        return $tenant ? [
             'tenant_key'        => $tenant->getTenantKey(),
             'tenant_identifier' => $tenant->getTenantIdentifier(),
         ] : [];
-
-        return array_merge($payload, ['attempts' => 0]);
     }
 }
